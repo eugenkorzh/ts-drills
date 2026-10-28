@@ -22,7 +22,7 @@ export function parseUser(input: unknown): User | null {
 
   if (email === undefined) return { name, age };
 
-  if (typeof email !== "string" || email.includes("@")) return null;
+  if (typeof email !== "string" || !email.includes("@")) return null;
 
   return { name, age, email };
 }
