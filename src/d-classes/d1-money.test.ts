@@ -30,9 +30,10 @@ describe("D1 Money", () => {
 
   it("compile-time rules", () => {
     // @ts-expect-error the constructor is private
-    const raw = new Money(100, "UAH");
+    new Money(100, "UAH");
+    const m = Money.of(1, "UAH");
     // @ts-expect-error cents is readonly
-    raw.cents = 5;
+    m.cents = 5;
     // @ts-expect-error not a supported currency
     Money.of(1, "EUR");
   });
